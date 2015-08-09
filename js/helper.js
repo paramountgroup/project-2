@@ -27,6 +27,8 @@ var HTMLbioPic = '<img src="%data%" class="biopic">';
 var HTMLwelcomeMsg = '<h3 id="welcome-msg-h3"><span class="welcome-message">%data%</span></h3>';
 var HTMLskillsStart = '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="skills" class="flex-list"></ul>';
 var HTMLskills = '<li class="flex-skills"><span class="white-text-skills">%data%</span></li>';
+//additional functionality added photos
+var HTMLearthPic = '<img src="images/earth-optimized.gif" class="earthpic" id="earthId"/>';
 
 var HTMLworkStart = '<div class="work-entry"></div>';
 var HTMLworkEmployer = '<a href="#">%data%';
