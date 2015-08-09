@@ -2,7 +2,8 @@
 /*
 Udactiy Front End Developer course Project-2 Online Resume. Additonal functionality was added as part of the bio display function.
 Onmouseover the earth image is replaced with photos from the variable bio.photos.  The photos are selected to display at random using a random number generator 0-9 to
-index through the array. The HTML and CSS were also improved to give the reumme a more attactive appearance and custom feel.
+index through the array. The HTML and CSS were also improved to give the reumme a more attactive appearance and custom feel. I referenced several sources for this project
+to include the Udacity course, Stack overflow best answers, project-2 Cheryl Court & Erin Mulligan, w3schools.com, brainyquote.com, developers.google.com, api.jquery.com, nasa.gov.
  */
 
 var bio = {
