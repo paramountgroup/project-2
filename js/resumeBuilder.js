@@ -14,17 +14,17 @@ var bio = {
 		'email' : 'bob@theparamountgroup.us',
 		'github' : 'paramountgroup',
 		'twitter' : '@paramountmedia',
-		'location' : 'Satellite Beach, FL',
+		'location' : 'Satellite Beach, FL'
 	},
 	'welcomeMessage' : 'President - The Paramount Group.us inc. We help our customers Extend Their Lead Online',
 	'skills': ['Website Designer', 'Nuclear Engineer', 'Entreprenuer', 'Adwords Certified Consultant'],
-	'bioPic' : 'images/bob_ingram_avatar.jpg',
+	'bioPic' : 'images/bob_ingram_avatar.jpg'
 };
 
 // additional functionality added with photo varialble
 
 var addPhoto = {
-	'photos' : ['images/satellite-beach.jpg','images/key-largo.jpg', 'images/mug-race.jpg', 'images/be-kind.jpg', 'images/change-the-world.jpg', 'images/fortune.jpg', 'images/press-on.jpg', 'images/first-office.jpg', 'images/lasers.jpg'],
+	'photos' : ['images/satellite-beach.jpg','images/key-largo.jpg', 'images/mug-race.jpg', 'images/be-kind.jpg', 'images/change-the-world.jpg', 'images/fortune.jpg', 'images/press-on.jpg', 'images/first-office.jpg', 'images/lasers.jpg']
 };
 
 
@@ -35,14 +35,14 @@ var work = {
 		'title' : 'Internet Marketing Consultant',
 		'location' : 'Satellite Beach FL',
 		'dates' : 'April 2013 - present',
-		'description' : 'Certified Google Adwords and Analytics consultant managing client accounts to achieve their internet advertising goals. Operations manager for the company to include finance, compliance and strategy',
+		'description' : 'Certified Google Adwords and Analytics consultant managing client accounts to achieve their internet advertising goals. Operations manager for the company to include finance, compliance and strategy'
 		},
 		{
 		'title' : 'Printer',
 		'employer' : 'Paramount Printing',
 		'location' : 'Brunswick, GA',
 		'dates' : '1994 - April 2013',
-		'description' : 'Printing production management, Direct mail and marketing, Management and Financial oversight',
+		'description' : 'Printing production management, Direct mail and marketing, Management and Financial oversight'
 		},
 		{
 		'title' : 'General Contractor',
@@ -56,7 +56,7 @@ var work = {
 		'employer' : 'United States Navy',
 		'location' : 'Holy Loch, Scottland',
 		'dates' : '1987 - 1994',
-		'description' : 'Qualified Navy Nuclear Engineer, Strategic Weapons Officer Instructor, Sonar Officer, Reactor Control Assistant',
+		'description' : 'Qualified Navy Nuclear Engineer, Strategic Weapons Officer Instructor, Sonar Officer, Reactor Control Assistant'
 		}
 	]
 };
@@ -67,14 +67,14 @@ var projects = {
 		'title' : 'Udacity Project 1 Portfolio Website',
 		'date' : 'July 2015',
 		'description' : 'First Udacity Project coding in HTML and CSS',
-		'images' : ['images/portfolio-project-Website-350x291.jpg'],
+		'images' : ['images/portfolio-project-Website-350x291.jpg']
 		},
 		{
 		'title' : 'Udacity Project 2 Online Resume Website',
 		'date' : 'August 2015',
 		'description' : 'First Udacity Project coding in Java Script and JSON',
-		'images' : ['images/project-2-online-resume-350x391.jpg'],
-		},
+		'images' : ['images/project-2-online-resume-350x391.jpg']
+		}
 	]
 };
 
@@ -94,7 +94,7 @@ var education = {
 		'degree' : 'Masters of Business Administration',
 		'majors' : ['Business Administration'],
 		'dates' : 1994,
-		'url' : 'http://www.brenau.edu/',
+		'url' : 'http://www.brenau.edu/'
 		}
 	],
 
@@ -108,7 +108,7 @@ var education = {
 	]
 };
 
-function displayBio() {
+bio.displayBio = function() {
 
 	var formattedName = HTMLheaderName.replace('%data%', bio.name);
 	var formattedRole = HTMLheaderRole.replace('%data%', bio.role);
@@ -117,18 +117,23 @@ function displayBio() {
 
 	var formattedMob = HTMLmobile.replace('%data%', bio.contacts.mobile);
 	$('#topContacts').prepend(formattedMob);
+	$('#footerContacts').prepend(formattedMob);
 
 	var formattedLoc = HTMLlocation.replace('%data%', bio.contacts.location);
 	$('#topContacts').prepend(formattedLoc);
+	$('#footerContacts').prepend(formattedLoc);
 
 	var formattedTwit = HTMLtwitter.replace('%data%', bio.contacts.twitter);
 	$('#topContacts').prepend(formattedTwit);
+	$('#footerContacts').prepend(formattedTwit);
 
 	var formattedGithub = HTMLgithub.replace('%data%', bio.contacts.github);
 	$('#topContacts').prepend(formattedGithub);
+	$('#footerContacts').prepend(formattedGithub);
 
 	var formattedEmail = HTMLemail.replace('%data%', bio.contacts.email);
 	$('#topContacts').prepend(formattedEmail);
+	$('#footerContacts').prepend(formattedEmail);
 
 	var formattedPic = HTMLbioPic.replace('%data%', bio.bioPic);
 	$('#header').append(formattedPic);
@@ -158,11 +163,11 @@ function displayBio() {
 	}
 }
 
-displayBio()
+bio.displayBio();
 
+work.displayWork = function() {
 
-function displayWork() {
-
+	var job;
 	for (job in work.jobs) {
 		$('#workExperience').append(HTMLworkStart);
 		// concat employer and title
@@ -183,12 +188,12 @@ function displayWork() {
 	}
 }
 
-displayWork()
+work.displayWork();
 
 
+projects.displayProjects = function() {
 
-function displayProjects() {
-
+	var proj;
 	for (proj in projects.project) {
 		$('#projects').append(HTMLprojectStart);
 
@@ -202,7 +207,7 @@ function displayProjects() {
 		$('.project-entry:last').append(formattedDescription);
 
 		if (projects.project[proj].images.length > 0) {
-
+			var img;
 			for (img in projects.project[proj].images) {
 
 				var formattedImage = HTMLprojectImage.replace('%data%', projects.project[proj].images[img]);
@@ -212,13 +217,12 @@ function displayProjects() {
 	}
 }
 
-displayProjects()
+projects.displayProjects();
 
-
-function displayEducation() {
+education.displayEducation = function() {
 
 	if(education.schools.length > 0 || education.onlineCourses.length > 0) {
-
+		var ed;
 		for(ed in education.schools) {
 				$('#education').append(HTMLschoolStart);
 
@@ -234,11 +238,11 @@ function displayEducation() {
 				$('.education-entry:last').append(formattedSchoolLocation);
 				$('.education-entry:last').append(formattedSchoolMajor);
 
-		};
+		}
 
 		if(education.onlineCourses.length > 0) {
 				$('#education').append(HTMLonlineClasses);
-
+				var ol;
 				for(ol in education.onlineCourses) {
 					$('#education').append(HTMLschoolStart);
 
@@ -255,28 +259,7 @@ function displayEducation() {
 	}
 }
 
-displayEducation()
-
-
-function displayFooter() {
-
-	var formattedMob = HTMLmobile.replace('%data%', bio.contacts.mobile);
-	$('#footerContacts').prepend(formattedMob);
-
-	var formattedLoc = HTMLlocation.replace('%data%', bio.contacts.location);
-	$('#footerContacts').prepend(formattedLoc);
-
-	var formattedTwit = HTMLtwitter.replace('%data%', bio.contacts.twitter);
-	$('#footerContacts').prepend(formattedTwit);
-
-	var formattedGithub = HTMLgithub.replace('%data%', bio.contacts.github);
-	$('#footerContacts').prepend(formattedGithub);
-
-	var formattedEmail = HTMLemail.replace('%data%', bio.contacts.email);
-	$('#footerContacts').prepend(formattedEmail);
-}
-
-displayFooter()
+education.displayEducation();
 
 
 $(document).click(function(loc) {
